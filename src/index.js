@@ -1,29 +1,47 @@
 import './style.css';
+import taskStatus from './status.js';
+import domObjects from './domObjects.js';
 
-const tasksUl = document.getElementById('tasks');
-const task = [{
-  description: 'Task 1',
-  completed: false,
-  index: 0,
-},
-{
-  description: 'Task 2',
-  completed: false,
-  index: 1,
-}];
-
-const display = (tasks) => {
-  let oneTask;
-  let element;
-  for (let i = 0; i < tasks.length; i += 1) {
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    element = document.createElement('li');
-    oneTask = tasks[i].description;
-    element.innerHTML = `<input type="checkbox" name="" id="checkbox"> <p> ${oneTask} </p> </input>`;
-    tasksUl.appendChild(element);
+let tasks = [];
+const clear = document.getElementById('clear');
+const inputField = document.getElementById('addTask');
+const displayOnLoad = () => {
+  if (localStorage.getItem('tasks') != null) {
+    domObjects();
   }
-  return element;
 };
 
-display(task);
+displayOnLoad();
+
+const addToList = (newTask) => {
+  if (localStorage.getItem('tasks') === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
+  tasks.push(newTask);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+
+const tasksArr = () => {
+  const inputFieldValue = inputField.value;
+  const newTask = {
+    description: inputFieldValue,
+    completed: false,
+  };
+  addToList(newTask);
+};
+
+inputField.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    tasksArr();
+    domObjects();
+    taskStatus();
+  }
+});
+
+clear.addEventListener('click', () => {
+  localStorage.clear();
+  domObjects();
+});
+taskStatus(0);
