@@ -6,14 +6,12 @@ function updateCompletedInStorage(status, index) {
       if (i === index) {
         item.completed = false;
         localStorage.setItem('tasks', JSON.stringify(taskList));
-        console.log('false', localStorage);
       }
     });
   } else {
     taskList.forEach((item, i) => {
       if (i === index) {
         item.completed = true;
-        console.log('correct', localStorage, index);
         localStorage.setItem('tasks', JSON.stringify(taskList));
       }
     });
@@ -23,7 +21,6 @@ function updateCompletedInStorage(status, index) {
 const status = () => {
   for (let i = 0; i < checkbox.length; i += 1) {
     checkbox[i].addEventListener('change', () => {
-      console.log('clicked');
       const { checked } = checkbox[i];
       if (checked) {
         updateCompletedInStorage(true, i);

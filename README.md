@@ -5,7 +5,7 @@
 
 ## Live Demo
 
-[Live Demo](https://adriancsm.github.io/Todo-List/)
+
 
 ### Features implemented:
 * Dynamically loading the list
@@ -20,6 +20,8 @@
 - ESlint (A mighty, modern linter that helps you avoid errors and enforce conventions in JavaScript codes)
 
 ## Getting started
+
+Installl dependencies : npm install
 
 To build the project run : npm run build
 
