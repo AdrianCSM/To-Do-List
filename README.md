@@ -19,6 +19,12 @@
 - Stylelint (A mighty, modern linter that helps you avoid errors and enforce conventions in your styles).
 - ESlint (A mighty, modern linter that helps you avoid errors and enforce conventions in JavaScript codes)
 
+## Getting started
+
+To build the project run : npm run build
+
+To start the server, run : npm start
+
 ## Acknowledgement
 
 ---
