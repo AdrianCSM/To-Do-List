@@ -101,7 +101,6 @@ export default class List {
   }
 
   activityActions() {
-    // update task status
     const checkbox = document.querySelectorAll('.update-status');
     if (checkbox !== null) {
       checkbox.forEach((box) => {
@@ -110,7 +109,7 @@ export default class List {
         });
       });
     }
-    // delete one activity on click
+
     const deleteActivity = document.querySelectorAll('.delete-activity');
     deleteActivity.forEach((activity) => {
       activity.addEventListener('click', () => {
@@ -118,7 +117,6 @@ export default class List {
       });
     });
 
-    // edit activity
     const editedActivity = document.querySelectorAll('.activity');
     if (editedActivity) {
       editedActivity.forEach((activity) => {
